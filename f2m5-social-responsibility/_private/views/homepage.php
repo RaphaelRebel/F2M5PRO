@@ -1,5 +1,5 @@
 <?php $this->layout('layouts::website');?>
-
+<link rel="stylesheet" href="<?php echo site_url( '/css/home.css' ) ?>" media="all">
 <?php $this->start('sidebar')?>
 <!-- Door sections toe te voegen aan je layout kun je deze per pagina aanpassen -->
 <div class="top-10">
@@ -17,6 +17,12 @@
 <h1>Welkom</h1>
 
 <p>Dit is de start van jullie project website!</p>
+
+<div class="stories-container">
+        <div class="stories"></div>
+        <div class="stories"></div>
+        <div class="stories"></div>
+</div>
 
 
 

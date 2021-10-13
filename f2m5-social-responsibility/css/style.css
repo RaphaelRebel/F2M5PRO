@@ -2,7 +2,7 @@
 
 body {
     font-family: "Nunito", "Open Sans", Arial, Helvetica, sans-serif;
-    background: rgba(20, 58, 135, 0.8);
+    background: #1E07A0;
 }
 
 main {
@@ -10,6 +10,10 @@ main {
     grid-template-columns: 1fr;
     grid-gap: 20px;
     background: #fff;
+}
+
+.container{
+    width: 100%;
 }
 
 header {
@@ -24,15 +28,15 @@ header h1 {
 
 nav {
     padding: 20px;
-    background: rgb(162, 184, 232);
     color: #fff;
     display: flex;
     flex-direction: row;
     width: 100%;
 }
 
-nav:not(:first-child){
-    margin-left: auto;
+.list{
+    position: absolute;
+    right: 9px;
 }
 
 .content {
@@ -74,11 +78,7 @@ nav ul li .active, nav ul li a:hover {
 }
 
 
-aside {
-    background: rgb(162, 184, 232);
-    min-height: 100px;
-    padding: 20px;
-}
+
 
 .top-10 ol {
     margin: 0;
@@ -92,9 +92,7 @@ footer {
 }
 
 @media screen and (min-width: 900px) {
-    main {
-        grid-template-columns: 1fr 350px;
-    }
+   
 
     nav ul li a {
         display: inline-block;

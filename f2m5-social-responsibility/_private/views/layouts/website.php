@@ -13,14 +13,14 @@
 </head>
 <body>
 <nav>
-    <h2>Logo</h2>
+    <h2><a href="<?php echo url( 'home' )?>">Logo</a></h2>
         <?php if ( $this->section( 'navigation' ) ): ?>
 			<?php echo $this->section( 'navigation' ) ?>
         <?php else: ?>
 			<?php echo $this->fetch( '_navigation' ) ?>
 		<?php endif ?>
     </nav>
-<div class="container">
+<div >
     <header>
         <h1>Social Responsibility</h1>
     </header>
@@ -29,9 +29,6 @@
         <section class="content">
 			<?php echo $this->section( 'content' ) ?>
         </section>
-        <aside>
-			<?php echo $this->section( 'sidebar' ) ?>
-        </aside>
     </main>
     <footer>
         &copy; <?php echo date('Y')?>
