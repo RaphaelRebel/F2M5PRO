@@ -21,9 +21,7 @@
 		<?php endif ?>
     </nav>
 <div >
-    <header>
-        <h1>Social Responsibility</h1>
-    </header>
+    
    
     <main>
         <section class="content">
@@ -31,7 +29,11 @@
         </section>
     </main>
     <footer>
-        &copy; <?php echo date('Y')?>
+        <div>
+            <div class="footer-content1"></div>
+            <div class="footer-content2"></div>
+            <div class="footer-content3"></div>
+        </div>
     </footer>
 </div>
 <?php $this->start( 'javascript' ) ?>
