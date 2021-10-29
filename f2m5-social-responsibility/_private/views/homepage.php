@@ -1,10 +1,9 @@
 <?php $this->layout('layouts::website');?>
 <link rel="stylesheet" href="<?php echo site_url( '/css/home.css' ) ?>" media="all">
-
+<div>
+        
+</div>
 <div class="top">
-        <div class="nav">
-            <img src="" alt="">    
-        </div>
             <div class="eyeCatcher">
                     <h2>Denk jij ook wel eens een van deze dingen?</h2>
                     <div class="eyes">
