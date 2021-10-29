@@ -1,7 +1,9 @@
 <?php $this->layout('layouts::website');?>
 <link rel="stylesheet" href="<?php echo site_url( '/css/home.css' ) ?>" media="all">
-<div>
-        
+<div class="header">
+<?php $this->start('navigation')?>
+<?php echo $this->section( 'navigation' ) ?>
+<?php $this->stop()?>
 </div>
 <div class="top">
             <div class="eyeCatcher">
