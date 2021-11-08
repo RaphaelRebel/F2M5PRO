@@ -1,7 +1,7 @@
 <?php $this->layout('layouts::website');?>
 <link rel="stylesheet" href="<?php echo site_url( '/css/home.css' ) ?>" media="all">
-<div>
-        
+<div class="header">
+        <img src="/images/Lisa.png" alt="">
 </div>
 <div class="top">
             <div class="eyeCatcher">
