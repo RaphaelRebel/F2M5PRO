@@ -31,6 +31,7 @@ nav {
     display: flex;
     flex-direction: row;
     width: 100%;
+    position: absolute;
 }
 
 .list{
@@ -40,7 +41,7 @@ nav {
 
 .content {
     min-height: 100px;
-    padding: 20px;
+    
 }
 
 nav ul {

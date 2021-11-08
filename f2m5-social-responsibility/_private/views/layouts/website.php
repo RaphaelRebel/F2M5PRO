@@ -13,7 +13,7 @@
 </head>
 <body>
 <nav>
-    <h2><a href="<?php echo url( 'home' )?>">Logo</a></h2>
+    <!-- <h2><a href="<?php echo url( 'home' )?>"><img class="" src="../images/Tc.png" alt="Logo"></a></h2> -->
         <?php if ( $this->section( 'navigation' ) ): ?>
 			<?php echo $this->section( 'navigation' ) ?>
         <?php else: ?>
