@@ -13,7 +13,7 @@
 </head>
 <body>
 <nav>
-    <!-- <h2><a href="<?php echo url( 'home' )?>"><img class="" src="../images/Tc.png" alt="Logo"></a></h2> -->
+    <h2><a href="<?php echo url( 'home' )?>"><img class="" src="../images/Tc.png" alt="Logo"></a></h2>
         <?php if ( $this->section( 'navigation' ) ): ?>
 			<?php echo $this->section( 'navigation' ) ?>
         <?php else: ?>
@@ -29,10 +29,10 @@
         </section>
     </main>
     <footer>
-        <div>
-            <div class="footer-content1"></div>
-            <div class="footer-content2"></div>
-            <div class="footer-content3"></div>
+        <div class="footer-grid">
+            <div class="footer-content1"><img class="" src="../images/Tc-b.png" alt="Logo"></div>
+            <div class="footer-content2"><h2>Mighty networks</h2></div>
+            <div class="footer-content3"><h2>Terms of use - Privacy policy</h2></div>
         </div>
     </footer>
 </div>

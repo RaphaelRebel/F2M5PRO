@@ -1,0 +1,19 @@
+.nav{
+    background-color: #FE8D0D ;
+}
+.tent{
+    margin: 300px;
+    border-radius: 15px;
+    padding: 40px;
+    width: 500px;
+    background-color: #5626CA;
+    color: white;
+}
+.cont{
+    height: 500px;
+    justify-content: center;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+}

@@ -27,7 +27,7 @@ header h1 {
 
 nav {
     padding: 20px;
-    color: #fff;
+    color: #FE8D0D;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -85,11 +85,16 @@ nav ul li .active, nav ul li a:hover {
 }
 
 footer {
+    width:100%;
+    height:auto;
     padding: 20px;
     color: #fff;
-    background: rgba(0, 13, 39);
+    background: #FE8D0D;
 }
-
+footer .footer-grid{
+    display: flex;
+    flex-direction: row;
+}
 @media screen and (min-width: 900px) {
    
 
