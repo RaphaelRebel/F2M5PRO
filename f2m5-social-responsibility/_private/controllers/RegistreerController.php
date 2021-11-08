@@ -20,6 +20,37 @@ class RegistreerController {
 	}
 
 	public function registrationProcess(){
-		echo "Het is gedaan";
+	
+		$result = validateRegistrationData($_POST);
+
+		if ( count( $result['errors'] ) === 0 ) {
+
+			if ( userNotRegistered($result['data']['email'])) {
+
+				createUser($result['data']['voornaam'], $result['data']['achternaam'], $result['data']['email'], $result['data']['wachtwoord']);
+
+				$bedanktUrl = url('register.thankyou');
+				redirect($bedanktUrl);
+				
+
+			
+			} else {
+				$errors['email'] = 'Deze email is al in gebruik';
+			}
+		}
+
+		$template_engine = get_template_engine();
+		echo $template_engine->render('register_form' , ['errors' => $result['errors']] );
+
+
 	}
+
+	public function registrationthankyou(){
+
+		$template_engine = get_template_engine();
+		echo $template_engine->render("register_thankyou");
+
+	}
+
+
 }

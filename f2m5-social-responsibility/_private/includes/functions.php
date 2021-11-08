@@ -15,7 +15,7 @@ function dbConnect() {
 	$config = get_config( 'DB' );
 
 	try {
-		$dsn = 'mysql:host=' . $config['HOSTNAME'] . ';dbname=' . $config['DATABASE'] . ';charset=utf8';
+		$dsn = 'mysql:host=' . $config['HOSTNAME'] . ';dbname=' . $config['DATABASE'] . ';port='. $config['PORT'].';charset=utf8';
 
 		$connection = new PDO( $dsn, $config['USER'], $config['PASSWORD'] );
 		$connection->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -85,4 +85,109 @@ function current_route_is( $name ) {
 
 	return false;
 
+}
+
+
+function validateRegistrationData($data) {
+
+	$errors = [];
+			
+	$voornaam    = trim( $data['voornaam']);
+	$achternaam = trim( $data['achternaam']);
+	$email = filter_var( $data['email'], FILTER_VALIDATE_EMAIL );
+	$wachtwoord = trim( $data['wachtwoord'] );
+
+	if ( strlen( $voornaam ) < 1 ){
+        $errors['voornaam'] = 'Geen voornaam ingevult';
+    }
+
+    if ( strlen( $achternaam) < 1 ){
+        $errors['achternaam'] = 'Geen voornaam ingevult';
+    }
+	
+	if ( $email === false ) {
+		$errors['email'] = 'Geen geldig email ingevuld';
+	}
+
+	if ( strlen( $wachtwoord ) < 6 ) {
+		$errors['wachtwoord'] = 'Geen geldig wachtwoord. (minimaal 6 tekens)';
+
+	}
+	$data = [
+		'voornaam'     => $voornaam,
+        'achternaam'   => $achternaam,
+		'email'		   => $data['email'],
+		'wachtwoord'   => $wachtwoord
+
+	];
+
+	return [
+		'data' => $data,
+		'errors' => $errors
+	];
+
+}
+function userNotRegistered($email) {
+
+$connection = dbConnect();
+$sql		= "SELECT * FROM `gebruikers` WHERE `email` = :email";
+$statement	= $connection->prepare( $sql );
+$statement->execute( [ 'email' => $email ] );
+
+return ($statement->rowCount() === 0 );
+
+}
+
+function loginUser($user){
+	$_SESSION['user_id'] = $user['id'];
+}
+
+function logoutUser(){
+	unset($_SESSION['user_id']);
+}
+
+function isLoggedIn(){
+	return !empty( $_SESSION['user_id'] );
+}
+
+function loginCheck() {
+	if ( ! isLoggedIn() ) {
+		$login_url = url( 'login.form' );
+		redirect( $login_url );
+		
+	}
+}
+
+function getLoggedInUserEmail() {
+
+	$email = "NIET INGELOGD";
+
+	if (!isLoggedIn()){
+		return 'NIET INGELOGD';
+	}
+
+	$user_id = $_SESSION['user_id'];
+	$user = getUserById($user_id);
+
+	if ($user){
+		$email = $user['email'];
+	}
+
+	return $email;
+}
+
+function createUser($voornaam, $achternaam, $email, $wachtwoord){
+
+				$connection = dbConnect();
+
+				$sql            = "INSERT INTO  `gebruikers` (`voornaam`, `achternaam`, `email`, `wachtwoord`) VALUES (:voornaam, :achternaam, :email, :wachtwoord)";
+				$statement		= $connection->prepare( $sql );
+				$safe_password	= password_hash( $wachtwoord, PASSWORD_DEFAULT );
+				$params			= [
+					'voornaam'     => $voornaam,
+        			'achternaam'   => $achternaam,
+					'email'		   => $email,
+					'wachtwoord'   => $safe_password,
+				];
+				$statement->execute( $params);
 }

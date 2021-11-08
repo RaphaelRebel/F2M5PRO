@@ -5,23 +5,11 @@
 
 $config = [
 	'DB'       => [
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 		'HOSTNAME' => 'localhost',
-		'DATABASE' => 'comics',
+		'DATABASE' => 'transformers',
+		'PORT' => '8889',
 		'USER'     => 'root',
 		'PASSWORD' => 'root'
-=======
->>>>>>> 271b8b5cd99ab141e2d6e0bbc54776816f56ccec
-		'HOSTNAME' => '127.0.0.1',
-		'DATABASE' => '',
-		'USER'     => 'root',
-		'PASSWORD' => ''
-<<<<<<< HEAD
-=======
->>>>>>> 08c63f215238d2015945efc7275f0cc3b961d665
->>>>>>> 271b8b5cd99ab141e2d6e0bbc54776816f56ccec
 	],
 	'BASE_URL' => '',  // Zet hier het pad naar de public map in, vanaf http://localhost, anders werken je routes niet!
 	'PUBLIC'     => dirname( __DIR__, 2 ),  // Vanaf dit bestand 2 mappen omhoog
