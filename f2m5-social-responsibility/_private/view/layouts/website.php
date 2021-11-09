@@ -13,26 +13,27 @@
 </head>
 <body>
 <nav>
-    <h2>Logo</h2>
+    <h2><a href="<?php echo url( 'home' )?>"><img class="" src="../images/Tc.png" alt="Logo"></a></h2>
         <?php if ( $this->section( 'navigation' ) ): ?>
 			<?php echo $this->section( 'navigation' ) ?>
         <?php else: ?>
-			<?php echo $this->fetch( 'main/_navigation' ) ?>
+			<?php echo $this->fetch( '_navigation' ) ?>
 		<?php endif ?>
     </nav>
-<div>
-    <!-- <header>
-        <h1><?php include('/text/paste.php') ?></h1>
-    </header> -->
+<div >
+    
    
     <main>
         <section class="content">
 			<?php echo $this->section( 'content' ) ?>
         </section>
-
     </main>
     <footer>
-        &copy; <?php echo date('Y')?>
+        <div class="footer-grid">
+            <div class="footer-content1"><img class="" src="../images/Tc-b.png" alt="Logo"></div>
+            <div class="footer-content2"><h2>Mighty networks</h2></div>
+            <div class="footer-content3"><h2>Terms of use - Privacy policy</h2></div>
+        </div>
     </footer>
 </div>
 <?php $this->start( 'javascript' ) ?>
