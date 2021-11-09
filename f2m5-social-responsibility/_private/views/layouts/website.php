@@ -13,27 +13,26 @@
 </head>
 <body>
 <nav>
-    <!-- <h2><a href="<?php echo url( 'home' )?>"><img class="" src="../images/Tc.png" alt="Logo"></a></h2> -->
+    <h2>Logo</h2>
         <?php if ( $this->section( 'navigation' ) ): ?>
 			<?php echo $this->section( 'navigation' ) ?>
         <?php else: ?>
 			<?php echo $this->fetch( '_navigation' ) ?>
 		<?php endif ?>
     </nav>
-<div >
-    
+<div>
+    <!-- <header>
+        <h1><?php include('/text/paste.php') ?></h1>
+    </header> -->
    
     <main>
         <section class="content">
 			<?php echo $this->section( 'content' ) ?>
         </section>
+
     </main>
     <footer>
-        <div>
-            <div class="footer-content1"></div>
-            <div class="footer-content2"></div>
-            <div class="footer-content3"></div>
-        </div>
+        &copy; <?php echo date('Y')?>
     </footer>
 </div>
 <?php $this->start( 'javascript' ) ?>

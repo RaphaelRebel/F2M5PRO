@@ -1,17 +1,21 @@
 <?php $this->layout('layouts::website');?>
 
-<h3>Inloggen</h3>
+<h2>Login</h2>
 
-<form action="<?php echo url("login.Process")?>" method="POST">
-        <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" value="" class="form-control" id="email" aria-describedby="emailHelp">
-                <small id="emailHelp" class="form-text text-muted">We delen uw email adres met niemand, uw gegevens zijn veilig!</small>
-        </div>
-        <div class="form-group">
-                <label for="wachtwoord">Wachtwoord</label>
-                <input type="password" name="wachtwoord" class="form-control" id="wachtwoord">
-
-        </div>
-        <Button type="submit" style="background-color:blue;" class="btn btn-primay">Login</button>
-</form>
+<form id="inlog" action = "<?php echo url('login.handle')?>" method="POST">
+           <p> E-mail</p>
+           <input class="form-control" type="email" name="email" placeholder="E-mail" value="<?php echo input('email')?>" required>*<br>
+           <?php if (isset ($errors['email'] ) ): ?>
+            <?php echo $errors['email']; ?>
+            <?php endif;?></br>
+           <p> Wachtwoord</p>
+           <input class="form-control" type="password" name="password" placeholder="Password" required>
+            <?php if (isset ($errors['password'] ) ): ?>
+            <?php echo $errors['password']; ?>
+            <?php endif;?>
+            <br><br>
+            <p>
+            <a href="<?php echo url('password.form');?>">Wachtwoord vergeten</a>
+            </p>
+            <input class="submit" type ="submit" value = "Inloggen!">
+ </form>
