@@ -1,8 +1,4 @@
 <?php $this->layout('layouts::website');?>
-<link rel="stylesheet" href="<?php echo site_url( '/css/user.css' ) ?>" media="all">
-<link rel="stylesheet" href="<?php echo site_url( '/css/style.css' ) ?>" media="all">
-<div class="cont">
-        <div class="tent">
 
 <link rel="stylesheet" href="<?php echo site_url( '/css/aanmelden.css' ) ?>" media="all">
 <?php if ( $this->section( 'css' ) ): ?>
@@ -29,5 +25,3 @@
         <input type = "submit" value = "Sign up">
         <p>Already made an account? <a href="../index.html">Click here</a> to log in</p>
     </div>
-    </div>
-</div>
