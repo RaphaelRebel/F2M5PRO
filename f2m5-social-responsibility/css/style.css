@@ -2,7 +2,8 @@
 
 body {
     font-family: "Nunito", "Open Sans", Arial, Helvetica, sans-serif;
-    background: white;
+    background: #1E07A0;
+    background-image: url('https://cdn.discordapp.com/attachments/895970995083542538/895989003126444063/Layer_1.png');
 }
 
 main {
@@ -24,11 +25,11 @@ header h1 {
 
 nav {
     padding: 20px;
-    background: rgb(162, 184, 232);
-    color: #fff;
+    color: #FE8D0D;
     display: flex;
     flex-direction: row;
     width: 100%;
+    position: absolute;
 }
 
 nav:not(:first-child){
@@ -38,7 +39,7 @@ nav:not(:first-child){
 .content {
     background: #ffffff;
     min-height: 100px;
-    padding: 20px;
+    
 }
 
 nav ul {
@@ -58,7 +59,6 @@ nav ul li {
 nav ul li a {
     display: block;
     padding: 5px 10px;
-    background: #000;
     color: #fff;
     text-decoration: none;
 }
@@ -69,32 +69,43 @@ nav ul li h2{
 }
 
 nav ul li .active, nav ul li a:hover {
+    border-radius: 5px;
     color: #000;
     background: #fff
 }
 
-
-aside {
-    background: rgb(162, 184, 232);
-    min-height: 100px;
-    padding: 20px;
+nav ul li .active2, nav ul li a:hover {
+    color: #fff;
+    background: #FE8D0D
 }
 
 .top-10 ol {
     margin: 0;
     padding: 0 20px;
 }
-
 footer {
+    width:100%;
+    height:auto;
     padding: 20px;
     width: 100%;
     color: #fff;
-    background: rgba(0, 13, 39);
-    position: absolute;
-    bottom: 0;
+    background: #FE8D0D;
 }
-
-
+footer .footer-grid{
+    display: flex;
+    flex-direction: row;
+    
+}
+.footer-content2{
+    display: flex;
+    align-items: center;
+    margin-left: 1em;
+}
+.footer-content3{
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+}
 @media screen and (min-width: 900px) {
     main {
         grid-template-columns: 1fr 350px;
