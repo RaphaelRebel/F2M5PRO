@@ -1,10 +1,12 @@
 <?php $this->layout('layouts::website');?>
 <link rel="stylesheet" href="<?php echo site_url( '/css/home.css' ) ?>" media="all">
+
+<!-- 
 <div class="header">
 <?php $this->start('navigation')?>
 <?php echo $this->section( 'navigation' ) ?>
 <?php $this->stop()?>
-</div>
+</div> -->
 <div class="top">
             <div class="eyeCatcher">
                     <h2>Denk jij ook wel eens een van deze dingen?</h2>
