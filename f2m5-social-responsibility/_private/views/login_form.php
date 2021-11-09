@@ -1,5 +1,6 @@
 <?php $this->layout('layouts::website');?>
 <link rel="stylesheet" href="<?php echo site_url( '/css/user.css' ) ?>" media="all">
+<link rel="stylesheet" href="<?php echo site_url( '/css/style.css' ) ?>" media="all">
 <div class="cont">
 <div class="tent">
 <h3>Inloggen</h3>
@@ -14,7 +15,7 @@
                 <input type="password" name="wachtwoord" class="form-control" id="wachtwoord">
 
         </div>
-        <Button type="submit" style="background-color:blue;" class="btn btn-primay">Login</button>
+        <Button type="submit" style="background-color:#FE8D0D; color: white;" class="btn btn-primay">Login</button>
 </form>
 </div>
 </div>
