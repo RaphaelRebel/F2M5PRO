@@ -16,11 +16,14 @@
         <li>
         <a href="<?php echo url( 'login.dashboard' ) ?>"<?php if ( current_route_is( 'login.dashboard' ) ): ?> class="active"<?php endif ?>>Dashboard</a>
     </li>
+        <?php if(request()->user['admin'] == 1):?>
+            <li>
+            <a href="<?php echo url( 'admin.index' ) ?>"<?php if ( current_route_is( 'admin.index' ) ): ?> class="active"<?php endif ?>>Admin</a>
+            </li>
+        <?php endif; ?>
         <?php endif;?>
 
     <?php if(isLoggedIn()): ?>
-        <?php echo getLoggedInUserEmail();?>
+        <?php echo request()->user['voornaam'].' '. request()->user['achternaam'];?>
     <?php endif; ?>
-    
-
 </ul>

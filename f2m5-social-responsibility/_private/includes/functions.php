@@ -46,6 +46,14 @@ function absolute_url( $path = '' ) {
 	return get_config( 'BASE_HOST' ) . $path;
 }
 
+function getAllTopics(){
+	$connection = dbConnect();
+	$sql = "SELECT * FROM `topics` ORDER BY `id` ASC";
+	$statement = $connection->query($sql);
+
+	return $statement->fetchAll();
+}
+
 function get_config( $name ) {
 	$config = require __DIR__ . '/config.php';
 	$name   = strtoupper( $name );
@@ -93,6 +101,8 @@ function current_route_is( $name ) {
 
 function validateRegistrationData($data){
 	$errors = [];
+	$voornaam = $data['voornaam'];
+	$achternaam = $data['achternaam'];
 	$email = filter_var($data['email'], FILTER_VALIDATE_EMAIL);
 	$password = trim($data['password']);
 	// $voornaam = $_POST['voornaam'];
@@ -111,7 +121,37 @@ function validateRegistrationData($data){
 	// resultaat array
 	$data = [
 		'email' => $_POST['email'],
-		'password' => $password
+		'password' => $password,
+		'voornaam' => $voornaam,
+		'achternaam' => $achternaam
+	];
+
+	return [
+		'data' => $data,
+		'errors' => $errors
+	];
+
+}
+
+// Blog 
+function validateTopicData($data){
+	$errors = [];
+	//Benoem alle waarden
+	$title = $data['title'];
+	$description = $data['description'];
+
+	//check of de titel en description ingevuld zijn
+	if (empty($title)) {
+		$errors['title'] = "Vul een titel in.";
+	}
+	if (empty($description)) {
+		$errors['description'] = "Vul een description in";
+	}
+
+	// resultaat array
+	$data = [
+		'title' => $title,
+		'description' => $description,
 	];
 
 	return [
@@ -130,18 +170,20 @@ function userNotRegistered($email){
 	return ($statement->rowCount() === 0);
 }
 
-function createUser($email, $password, $code){
+function createUser($email, $password, $code, $voornaam, $achternaam){
 		
 		$connection = dbConnect();
 
 		//zo niet, door met opslaan
-		$sql = "INSERT INTO `user` (`email`, `password`, `code`) VALUES (:email, :password, :code)";
+		$sql = "INSERT INTO `user` (`email`, `password`, `code`, `voornaam`, `achternaam`) VALUES (:email, :password, :code, :voornaam, :achternaam)";
 		$statement = $connection->prepare($sql);
 		$safe_password = password_hash($password, PASSWORD_DEFAULT);
 		$params = [
 			'email' => $email,
 			'password' => $safe_password,
-			'code' => $code
+			'code' => $code,
+			'voornaam' => $voornaam,
+			'achternaam' => $achternaam
 			// 'voornaam' => $voornaam,
 			// 'achternaam' => $achternaam
 		];
@@ -154,6 +196,13 @@ function loginUser($user){
 
 function logoutUser(){
 	unset($_SESSION['user_id']);
+}
+
+function loggedInUser(){
+	if(!isLoggedIn()){
+		return false;
+	};
+	return getUserById($_SESSION['user_id']);
 }
 
 function isLoggedIn(){
@@ -326,7 +375,7 @@ function sendPasswordResetEmail($email){
 	];
 	$statement->execute($params);
 
-	$url = url('wachtwoord-reset', ['reset_code' => $reset_code]);
+	$url = url('wachtwoord/wachtwoord-reset', ['reset_code' => $reset_code]);
 
 	$absolute_url = absolute_url($url);
 
@@ -339,5 +388,12 @@ function sendPasswordResetEmail($email){
 	$mailer->send($message);
 
 }
+
+
+
+
+
+
+
 
 
