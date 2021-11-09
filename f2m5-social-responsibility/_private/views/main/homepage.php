@@ -1,5 +1,6 @@
 <?php $this->layout('layouts::website');?>
 <link rel="stylesheet" href="<?php echo site_url( '/css/home.css' ) ?>" media="all">
+<link rel="stylesheet" href="<?php echo site_url( '/css/style.css' ) ?>" media="all">
 <div class="text-top">
 <h2>Transformers Community</h2>
 <p> Voor jongeren (16-17 j.) die zich zelfverzekerd willen voelen en
