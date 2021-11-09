@@ -1,8 +1,14 @@
 <?php $this->layout('layouts::website');?>
+<link rel="stylesheet" href="<?php echo site_url( '/css/user.css' ) ?>" media="all">
+<link rel="stylesheet" href="<?php echo site_url( '/css/style.css' ) ?>" media="all">
 
-<h3>Inschrijven</h3>
 
+<div class="cont">
+        <div class="tent">
+
+ 
 <form action="<?php echo url("register.Process")?>" method="POST">
+<h3>Inschrijven</h3>
         <div class="form-group">
         <label for="firstname">Firstname</label>
                 <input type="firstname" name="firstname" class="form-control" id="firstname">
@@ -21,5 +27,7 @@
                 <input type="password" name="wachtwoord" class="form-control" id="wachtwoord">
 
         </div>
-        <Button type="submit" style="background-color:blue;" class="btn btn-primay">Registeren</button>
-</form>
+        <Button type="submit" style="background-color:#FE8D0D; color: white;" class="btn btn-primay">Registeren</button>
+</form> 
+        </div>
+</div>

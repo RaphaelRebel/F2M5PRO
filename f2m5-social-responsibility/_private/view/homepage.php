@@ -1,10 +1,15 @@
 <?php $this->layout('layouts::website');?>
 <link rel="stylesheet" href="<?php echo site_url( '/css/home.css' ) ?>" media="all">
-
+<div class="text-top">
+<h2>Transformers Community</h2>
+<p> Voor jongeren (16-17 j.) die zich zelfverzekerd willen voelen en
+tegenslagen omzetten in kracht
+</p>
+</div>
+<div class="header">
+        <img src="/images/Lisa.png" alt="">   
+</div>
 <div class="top">
-        <div class="nav">
-            <img src="" alt="">    
-        </div>
             <div class="eyeCatcher">
                     <h2>Denk jij ook wel eens een van deze dingen?</h2>
                     <div class="eyes">
