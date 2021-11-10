@@ -53,6 +53,7 @@ nav ul {
     display: flex;
     flex-direction: row;
     width: 100%;
+    justify-content: flex-end;
 }
 
 nav ul li {
@@ -94,10 +95,9 @@ footer {
     color: #fff;
     background: #FE8D0D;
 }
-footer .footer-grid{
+.footer-3{
     display: flex;
     flex-direction: row;
-    
 }
 .footer-content2{
     display: flex;

@@ -13,7 +13,7 @@
 </head>
 <body>
 <nav>
-    <h2>Logo</h2>
+<h2><a href="<?php echo url( 'home' )?>"><img class="" src="../images/Tc.png" alt="Logo"></a></h2>
         <?php if ( $this->section( 'navigation' ) ): ?>
 			<?php echo $this->section( 'navigation' ) ?>
         <?php else: ?>
@@ -32,7 +32,11 @@
 
     </main>
     <footer>
-        &copy; <?php echo date('Y')?>
+        <div class="footer-3">
+            <div class="footer-content1"><img class="" src="../images/Tc-b.png" alt="Logo"></div>
+            <div class="footer-content2"><h3>Mighty networks</h3></div>
+            <div class="footer-content3"><h3>Terms of use - Privacy Policy</h3></div>
+        </div>
     </footer>
 </div>
 <?php $this->start( 'javascript' ) ?>
